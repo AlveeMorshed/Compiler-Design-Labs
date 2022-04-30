@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
-
 public class LexicalAnalyzer {
 	String[]keyword = {"int", "float", "char", "double", "String", "if", "else"};
 	String[]operator = {"+", "-", "*", "/", "%", "=", "++", "--", "+=", "-=", "*=","/=","%=", "^"};
@@ -14,8 +13,7 @@ public class LexicalAnalyzer {
 	ArrayList<String> numericValues = new ArrayList<String>();
 	ArrayList<String> other = new ArrayList<String>();
 	String[]modLineArr;
-	String modifiedLine, keywords = "", variableNames = "", operators = "";
-	String logicalOperators = "", nums = "", others = "";
+	String modifiedLine, keywords = "", variableNames = "", operators = "" , logicalOperators = "", nums = "", others = "";
 	public void analyze() {
 		try {
 			File input = new File("input.txt");
@@ -30,7 +28,7 @@ public class LexicalAnalyzer {
 				if(Arrays.asList(keyword).contains(lineArray[0]) && lineArray[lineArray.length-1].endsWith(";")){
 					String[]identifier = (lineArray[lineArray.length-1].split(","));
 					for(int i=0; i<identifier.length; ++i) {
-						identifier[i] = identifier[i].replaceAll(",", "");
+						//identifier[i] = identifier[i].replaceAll( ","  ,   "" );
 						identifier[i] = identifier[i].replaceAll(";", "");
 						identifier[i] = identifier[i].replaceAll(" ", "");
 						variableNames = addWord(variableNames, identifier[i]);
@@ -132,3 +130,5 @@ public class LexicalAnalyzer {
 		return sentence;
 	}
 }
+
+ 
